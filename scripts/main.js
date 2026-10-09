@@ -22,15 +22,6 @@ Hooks.once('init', () => {
     filePicker: 'video',
     default: `modules/${MODULE_ID}/assets/tails.webm`
   });
-
-  game.settings.register(MODULE_ID, 'muteVideo', {
-    name: 'Отключить звук',
-    hint: 'Если включено — видео будет воспроизводиться без звука',
-    scope: 'client',
-    config: true,
-    type: Boolean,
-    default: false
-  });
 });
 
 function getInterfaceVolume() {
@@ -52,7 +43,7 @@ async function flipCoin() {
   const outcomeText = isHeads ? 'Орёл' : 'Решка';
   const videoPath = game.settings.get(MODULE_ID, isHeads ? 'headsVideo' : 'tailsVideo');
 
-  const isMuted = game.settings.get(MODULE_ID, 'muteVideo');
+  const isMuted = 0;
   const volume = isMuted ? 0 : getInterfaceVolume();
 
   const videoId = `coin-flip-video-${foundry.utils.randomID()}`;
@@ -76,7 +67,8 @@ async function flipCoin() {
     content: chatContent,
     speaker: ChatMessage.getSpeaker({ token: token.document }),
     rolls: [roll],
-    flags: { [MODULE_ID]: { result, videoId } }
+    flags: { [MODULE_ID]: { result, videoId } },
+    notify: false
   });
 
   setTimeout(() => {
