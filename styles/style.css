@@ -1,0 +1,17 @@
+.coin-flip-result {
+  text-align: center;
+  border: 1px solid #7a7971;
+  border-radius: 5px;
+  padding: 10px;
+  background: transparent;
+}
+
+.coin-flip-result h3 {
+  margin: 0 0 5px 0;
+  color: #4b4a44;
+}
+
+.coin-flip-result video {
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
